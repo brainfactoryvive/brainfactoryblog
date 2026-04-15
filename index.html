@@ -1,27 +1,60 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>로또 번호 생성기</title>
+  <title>Design Archive - 디자인 이슈 포스팅</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 <body>
+  <header class="header">
+    <div class="header-content">
+      <h1 class="logo">Design Archive</h1>
+      <div class="header-actions">
+        <button id="add-post-btn" class="action-btn" aria-label="새 포스트 작성">
+          <i class="fas fa-plus"></i>
+        </button>
+        <button id="theme-toggle" class="theme-toggle" aria-label="테마 전환">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
   <main class="container">
-    <button id="theme-toggle" class="theme-toggle" aria-label="다크/라이트 모드 전환">
-        <i class="fas fa-moon"></i>
-    </button>
-    <header>
-        <h1 class="title"><i class="fas fa-clover"></i> 로또 번호 생성기</h1>
-    </header>
-    <section class="lotto-card">
-        <div id="lotto-numbers-container" class="lotto-numbers-container">
-        </div>
-        <button id="generate-btn" class="generate-btn">번호 생성</button>
+    <section class="intro">
+      <p class="intro-text">매일 마주하는 디자인 이슈와 영감을 아카이빙합니다.</p>
     </section>
+
+    <div id="posts-container" class="posts-grid">
+      <!-- Posts will be dynamically added here -->
+    </div>
   </main>
+
+  <!-- Add Post Modal -->
+  <div id="post-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>새로운 디자인 이슈 기록</h2>
+      <form id="post-form">
+        <div class="form-group">
+          <label for="post-title">제목</label>
+          <input type="text" id="post-title" placeholder="디자인 이슈의 핵심을 적어주세요" required>
+        </div>
+        <div class="form-group">
+          <label for="post-content">내용</label>
+          <textarea id="post-content" placeholder="이슈에 대한 상세한 내용을 작성해주세요" rows="5" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="post-tag">태그</label>
+          <input type="text" id="post-tag" placeholder="UI, UX, 트렌드 등">
+        </div>
+        <button type="submit" class="submit-btn">포스팅하기</button>
+      </form>
+    </div>
+  </div>
+
   <script src="main.js"></script>
 </body>
 </html>
