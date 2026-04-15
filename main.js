@@ -1,6 +1,29 @@
 const generateBtn = document.getElementById('generate-btn');
 const lottoNumbersContainer = document.getElementById('lotto-numbers-container');
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+const themeIcon = themeToggle.querySelector('i');
 
+// Theme Toggle Logic
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme === 'light') {
+  body.classList.add('light-mode');
+  themeIcon.classList.replace('fa-moon', 'fa-sun');
+}
+
+themeToggle.addEventListener('click', () => {
+  body.classList.toggle('light-mode');
+  
+  if (body.classList.contains('light-mode')) {
+    localStorage.setItem('theme', 'light');
+    themeIcon.classList.replace('fa-moon', 'fa-sun');
+  } else {
+    localStorage.setItem('theme', 'dark');
+    themeIcon.classList.replace('fa-sun', 'fa-moon');
+  }
+});
+
+// Lotto Generation Logic
 generateBtn.addEventListener('click', () => {
   lottoNumbersContainer.innerHTML = '';
   const numbers = new Set();

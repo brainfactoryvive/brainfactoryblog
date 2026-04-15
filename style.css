@@ -5,29 +5,63 @@
   --secondary-color: #e94560;
   --text-color: #ffffff;
   --number-color: #f0e9d2;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --accent-shadow: rgba(233, 69, 96, 0.3);
+  --pattern-color: #16213e;
+}
+
+body.light-mode {
+  --background-color: #f0f2f5;
+  --card-background-color: #ffffff;
+  --primary-color: #3f51b5;
+  --secondary-color: #ff4081;
+  --text-color: #333333;
+  --number-color: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --accent-shadow: rgba(255, 64, 129, 0.2);
+  --pattern-color: #e0e0e0;
 }
 
 body {
   font-family: 'Arial', sans-serif;
   background-color: var(--background-color);
-  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-4c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm63 5c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7z' fill='%2316213e'/%3E%3C/svg%3E");
+  background-image: linear-gradient(rgba(0,0,0,0.05), rgba(0,0,0,0.05)), url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-4c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm63 5c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7z' fill='var(--pattern-color)'/%3E%3C/svg%3E");
   color: var(--text-color);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   margin: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
   text-align: center;
   padding: 2rem;
+  position: relative;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: -20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(20deg);
 }
 
 .title {
   font-size: 2.5rem;
   margin-bottom: 2rem;
-  text-shadow: 0 0 10px var(--secondary-color);
+  text-shadow: 0 0 10px var(--accent-shadow);
   display: flex;
   align-items: center;
   justify-content: center;
