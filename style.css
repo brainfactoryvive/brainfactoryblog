@@ -1,1 +1,101 @@
-/* Add styles here */
+:root {
+  --background-color: #1a1a2e;
+  --card-background-color: #16213e;
+  --primary-color: #0f3460;
+  --secondary-color: #e94560;
+  --text-color: #ffffff;
+  --number-color: #f0e9d2;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--background-color);
+  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-4c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm63 5c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7z' fill='%2316213e'/%3E%3C/svg%3E");
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  padding: 2rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 10px var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title i {
+    margin-right: 1rem;
+}
+
+
+.lotto-card {
+  background-color: var(--card-background-color);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 40px rgba(233, 69, 96, 0.3);
+  width: 100%;
+  max-width: 400px;
+}
+
+.lotto-numbers-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.lotto-number {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: var(--number-color);
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 15px var(--secondary-color);
+  transition: all 0.3s ease;
+  transform: scale(0);
+  animation: pop-in 0.5s ease forwards;
+}
+
+@keyframes pop-in {
+  to {
+    transform: scale(1);
+  }
+}
+
+.generate-btn {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+}
+
+.generate-btn:hover {
+  background-color: #ff7f50;
+  box-shadow: 0 0 30px rgba(255, 127, 80, 0.7);
+  transform: translateY(-2px);
+}
+
+.generate-btn:active {
+    transform: translateY(1px);
+}
